@@ -11,18 +11,20 @@ using XFDemo.Models;
 
 namespace XFDemo.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class DoctorView : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class DoctorView : ContentPage
+    {
         Doctor EditDoctor { get; set; }
-        
+
         Doctor CurrentDoctor { get; set; }
         public DoctorView(Doctor doctor)
         {
             InitializeComponent();
 
-            CurrentDoctor = doctor;
+            Title = "Edit doctor";
 
+            CurrentDoctor = doctor;
+            
             EditDoctor = new Doctor()
             {
                 Title = doctor.Title,
@@ -35,25 +37,33 @@ namespace XFDemo.Views
             BindingContext = EditDoctor;
         }
 
-        public DoctorView ()
-		{
+        public DoctorView()
+        {
+            InitializeComponent();
 
-            InitializeComponent ();
+            Title = "New doctor";
 
-            
+            EditDoctor = new Doctor();
 
-            
+            BindingContext = EditDoctor;
         }
 
-        
+
 
         private void Save_Clicked(object sender, EventArgs e)
         {
-            CurrentDoctor.Title = EditDoctor.Title;
-            CurrentDoctor.Name = EditDoctor.Name;
-            CurrentDoctor.Image = EditDoctor.Image;
-            CurrentDoctor.Address = EditDoctor.Address;
-            CurrentDoctor.Phonenumber = EditDoctor.Phonenumber;
+            if (CurrentDoctor != null)
+            {
+                CurrentDoctor.Title = EditDoctor.Title;
+                CurrentDoctor.Name = EditDoctor.Name;
+                CurrentDoctor.Image = EditDoctor.Image;
+                CurrentDoctor.Address = EditDoctor.Address;
+                CurrentDoctor.Phonenumber = EditDoctor.Phonenumber;
+            }
+            else
+            {
+                MainView.Doctors.Add(EditDoctor);
+            }
             //CurrentDoctor.RaisePropertyChanged("Address");
             Navigation.PopAsync();
         }

@@ -12,10 +12,14 @@
             <forms:CachedImage HeightRequest="80"
                                Aspect="AspectFit"
                                Source="{Binding Image}" />
-            <Entry Text="{Binding Name,Mode=TwoWay}" />
-            <Entry Text="{Binding Title}" />
-            <Entry Text="{Binding Address}" />
-            <Entry Text="{Binding Phonenumber}" />
+            <Entry Text="{Binding Name,Mode=TwoWay}"
+                   Placeholder="Name"/>
+            <Entry Text="{Binding Title}"
+                       Placeholder="Title" />
+            <Entry Text="{Binding Address}"
+                       Placeholder="Address" />
+            <Entry Text="{Binding Phonenumber}"
+                   Placeholder="Phonenumber"/>
         </StackLayout>
         </ScrollView>
     </ContentPage.Content>

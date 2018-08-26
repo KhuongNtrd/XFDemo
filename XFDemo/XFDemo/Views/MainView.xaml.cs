@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,7 @@ namespace XFDemo.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainView : ContentPage
     {
-        List<Doctor> Doctors { get; set; }
+        public static ObservableCollection<Doctor> Doctors { get; set; }
 
         public MainView()
         {
@@ -23,7 +24,7 @@ namespace XFDemo.Views
 
             if (Doctors == null)
             {
-                Doctors = new List<Doctor>()
+                Doctors = new ObservableCollection<Doctor>()
                 {
                      new Doctor(){
                         Name ="Nguyen Van A",
@@ -56,13 +57,14 @@ namespace XFDemo.Views
                 };
             }
 
+            ListViewDoctor.ItemsSource = Doctors;
         }
 
-        protected override async void OnAppearing()
+        protected override void OnAppearing()
         {
             base.OnAppearing();
 
-             ListViewDoctor.ItemsSource = Doctors;
+
             //await Task.Delay(1000);
             //await Navigation.PushAsync(new DoctorView(Doctors[0]));
         }
@@ -72,6 +74,22 @@ namespace XFDemo.Views
             var doctor = (Doctor)e.Item;
 
             await Navigation.PushAsync(new DoctorView(doctor));
+        }
+
+        private void Delete_Clicked(object sender, EventArgs e)
+        {
+            var bindingContext = ((MenuItem)sender).BindingContext;
+
+            var doctor = (Doctor)bindingContext;
+
+            //...
+
+            Doctors.Remove(doctor);
+        }
+
+        private void New_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new DoctorView());
         }
     }
 }
