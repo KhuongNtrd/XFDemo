@@ -66,6 +66,8 @@ namespace XFDemo.Views
             }
             //CurrentDoctor.RaisePropertyChanged("Address");
             Navigation.PopAsync();
+
+            Acr.UserDialogs.UserDialogs.Instance.Toast("Item saved...");
         }
 
         //void Button_Clicked()

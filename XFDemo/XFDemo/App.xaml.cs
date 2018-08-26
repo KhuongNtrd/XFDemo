@@ -18,7 +18,7 @@ namespace XFDemo
             LiveReload.Init();
 #endif
 
-            MainPage = new NavigationPage(new MainView());
+            MainPage = new NavigationPage(new ProfileView());
         }
     }
 }

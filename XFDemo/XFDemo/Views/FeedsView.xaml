@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             x:Class="XFDemo.Views.FeedsView"
+             Title="Feeds">
+    <ListView ItemsSource="{Binding Posts.Data}" HasUnevenRows="True"
+              BackgroundColor="DarkGray"
+              SeparatorVisibility="None">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Frame HasShadow="True" Margin="10" Padding="10">
+                        <StackLayout>
+                            <Label Text="{Binding Message}"
+                                   Margin="10"
+                                   IsVisible="{Binding HasMessage}"/>
+                            <forms:CachedImage Source="{Binding FullPicture}" 
+                                               Grid.Row="1"
+                                               HeightRequest="300"
+                                               LoadingPlaceholder="image_default.png"
+                                               ErrorPlaceholder="image_default.png"
+                                               IsVisible="{Binding HasPicture}"/>
+                        </StackLayout>
+                    </Frame>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             x:Class="XFDemo.Views.ProfileView">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Feeds" Clicked="Feed_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <forms:CachedImage Source="{Binding Picture.Data.Url}"
+                               HeightRequest="120"
+                               WidthRequest="120"/>
+            <Label Text="{Binding Name}" />
+            <Label Text="{Binding Email}" />
+            <Label Text="{Binding Birthday}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

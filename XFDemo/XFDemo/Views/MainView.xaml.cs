@@ -76,15 +76,18 @@ namespace XFDemo.Views
             await Navigation.PushAsync(new DoctorView(doctor));
         }
 
-        private void Delete_Clicked(object sender, EventArgs e)
+        private async void Delete_Clicked(object sender, EventArgs e)
         {
-            var bindingContext = ((MenuItem)sender).BindingContext;
+            if (await DisplayAlert("Delete", "Are you sure?", "Yes", "No"))
+            {
+                var bindingContext = ((MenuItem)sender).BindingContext;
 
-            var doctor = (Doctor)bindingContext;
+                var doctor = (Doctor)bindingContext;
 
-            //...
+                //...
 
-            Doctors.Remove(doctor);
+                Doctors.Remove(doctor);
+            }
         }
 
         private void New_Clicked(object sender, EventArgs e)

@@ -28,7 +28,7 @@ namespace XFDemo.Droid
 //            global::Xamarin.Forms.Forms.SetFlags("FastRenderers_Experimental");
 
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init(true);
-
+            Acr.UserDialogs.UserDialogs.Init(this);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
 
