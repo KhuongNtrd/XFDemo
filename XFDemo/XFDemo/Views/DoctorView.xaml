@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             x:Class="XFDemo.Views.DoctorView">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Save" Clicked="Save_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+        <StackLayout Margin="10">
+            <forms:CachedImage HeightRequest="80"
+                               Aspect="AspectFit"
+                               Source="{Binding Image}" />
+            <Entry Text="{Binding Name,Mode=TwoWay}" />
+            <Entry Text="{Binding Title}" />
+            <Entry Text="{Binding Address}" />
+            <Entry Text="{Binding Phonenumber}" />
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

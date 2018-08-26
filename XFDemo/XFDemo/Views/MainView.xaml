@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             Title="Home"
+             x:Class="XFDemo.Views.MainView">
+    <ListView x:Name="ListViewDoctor"
+              HasUnevenRows="True"
+              SelectionMode="None"
+              ItemTapped="ListViewDoctor_ItemTapped">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <ViewCell.ContextActions>
+                        <MenuItem Text="Delete" />
+                    </ViewCell.ContextActions>
+                    <Grid Padding="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="60" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <forms:CachedImage Source="{Binding Image}"
+                                           Grid.RowSpan="2" />
+                        <Label Text="{Binding Name}"
+                               FontSize="Medium"
+                               FontAttributes="Bold"
+                               Grid.Column="1" />
+                        <Label Text="{Binding Title}"
+                               FontSize="Medium"
+                               Grid.Column="1"
+                               Grid.Row="1" />
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>

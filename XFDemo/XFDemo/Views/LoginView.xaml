@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XFDemo.Views.LoginView">
+    <ScrollView>
+        <StackLayout Margin="20"
+                     VerticalOptions="Center">
+            <Entry x:Name="EntryUsername"
+                   Placeholder="Username" />
+            <Entry x:Name="EntryPassword"
+                   Placeholder="Password"
+                   IsPassword="True" />
+            <Button x:Name="ButtonLogin"
+                    Clicked="Login_Clicked"
+                    Text="Login"
+                    HeightRequest="40"
+                    BackgroundColor="DeepSkyBlue"
+                    TextColor="White" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
